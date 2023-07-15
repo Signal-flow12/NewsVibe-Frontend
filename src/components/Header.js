@@ -1,5 +1,13 @@
+import { Link } from 'react-router-dom'
+
 const Header = () => {
-    return <h1>Header </h1> 
+    return (
+        <div className="Navigation">
+            <nav>
+                <Link to ='/'>Feed</Link>
+            </nav>
+        </div>
+    )
 }
 
 export default Header
