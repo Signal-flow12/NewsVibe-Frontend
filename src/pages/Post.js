@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+import {Link} from 'react-router-dom'
 
 const Post = () => {
 
-    const [ post, setPost ] = useState([])
+const [post, setPost] = useState([])
+const [newPost, setnewPost]= useState({
+    text: "",
+    image: "",
+})
 
 const URL = 'http://localhost:4000/';
 
@@ -20,15 +25,46 @@ useEffect(() => {
     getPost();
 }, [])
 
-console.log(`There are ${post.length} people available to render`)
+//create new post function sends to mongo 
+const handleSubmit = async (e) => {
+    try {
+        e.preventDefault();
+        await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newPost)
+        })
+        getPost()
+        setnewPost({ text: "", image: "" })
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+//form handle local change function
+const handleChange = (e) => {
+    console.log(e.target);
+    setnewPost((previousFormState) => ({
+        ...previousFormState,
+        [e.target.name]: e.target.value
+    }))
+}
+
+
+//console.log(`There are ${post.length} Post available to render`)
+
 
 const loaded = () => {
     return post?.map((singlePost) => {
         return (
           <div key={singlePost._id}>
+            <Link to={`/${singlePost._id}`}>
             <h1>{singlePost.text}</h1>
-            <h1>{singlePost.verified === true ? <span>&#10004;</span> : null}</h1>
-            <h1>{singlePost.image}</h1>
+            <img src={singlePost.image} alt="image"/>
+            </Link>
             <hr />
           </div>
         );
@@ -46,6 +82,26 @@ const loaded = () => {
   
     return (
         <>
+        <div className="newPost">
+            <h2>Create a Vibe</h2>
+            <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        value={newPost.text}
+                        name="text"
+                        placeholder="Enter your vibe here"
+                        onChange={handleChange}
+                    />
+                    <input
+                        type="text"
+                        value={newPost.image}
+                        name="image"
+                        placeholder="Image"
+                        onChange={handleChange}
+                    />
+                <input type="submit" value="Vibe" />
+            </form>
+        </div>
         {post && post.length ? loaded() : loading() }
         </>
     )

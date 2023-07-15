@@ -11,7 +11,7 @@ function App() {
       <header>
         <Routes>
           <Route path='/' element={<Post />} />
-          <Route path="/post:id" element={<PostShow />} />
+          <Route path="/:id" element={<PostShow />} />
         </Routes>
       </header>
     </div>
