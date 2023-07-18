@@ -5,10 +5,12 @@ import PostDelete from './pages/PostDelete';
 import PostShow from './pages/PostShow';
 import Header from './components/Header';
 import PostEdit from './pages/PostEdit';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
   return (
     <div className="App">
+      <CssBaseline />
       <Header />
       <header>
         <Routes>
