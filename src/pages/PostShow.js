@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import Comments from "../components/Comments";
+
 
 
 const PostShow = () => {
@@ -30,6 +32,14 @@ const PostShow = () => {
             <div className="postDetail">
                 <h1>{post.text}</h1>
                 <img src={post.image} alt="image"/>
+                <Link to={`/${id}/edit`}>
+                    <button>Edit</button>
+                </Link>
+                <Link to={`/${id}/delete`}>
+                    <button>Delete</button>
+                </Link>
+                <hr/>
+                <Comments postId={id} />
             </div>
         )
     }
