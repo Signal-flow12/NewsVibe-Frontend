@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
 import * as React from 'react';
+import { Button } from "@mui/material";
+import PostForm from "../forms/PostForm";
 
 const Post = () => {
    
@@ -58,24 +60,24 @@ const handleChange = (e) => {
 //console.log(`There are ${post.length} Post available to render`)
 
 
-const loaded = () => {
-    return (
-      <div className="feed">
-        {post?.map((singlePost) => (
-          <div key={singlePost._id} className="post-container">
-            <div className="post">
-              <Link to={`/${singlePost._id}`}>
-                <h1>{singlePost.text}</h1>
-                <img src={singlePost.image} alt="image" />
-              </Link>
-              <hr />
+    const loaded = () => {
+        return (
+        <div className="feed">
+            {post?.map((singlePost) => (
+            <div key={singlePost._id} className="post-container">
+                <div className="post">
+                <Link to={`/${singlePost._id}`} style={{ textDecoration: 'none' }}>
+                    <h4>{singlePost.text}</h4>
+                    <img src={singlePost.image} alt="image" />
+                </Link>
+                <hr />
+                </div>
             </div>
-          </div>
-        ))}
-      </div>
-    );
-  };
-  
+            ))}
+        </div>
+        );
+    };
+    
   
 
     const loading = () => (
@@ -89,26 +91,7 @@ const loaded = () => {
   
     return (
         <>
-        <div className="newPost">
-            <h2>Create a Vibe</h2>
-            <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        value={newPost.text}
-                        name="text"
-                        placeholder="Enter your vibe here"
-                        onChange={handleChange}
-                    />
-                    <input
-                        type="text"
-                        value={newPost.image}
-                        name="image"
-                        placeholder="Image"
-                        onChange={handleChange}
-                    />
-                <input type="submit" value="Vibe" />
-            </form>
-        </div>
+        <PostForm getPost={getPost} />
         {post && post.length ? loaded() : loading() }
         </>
     )
