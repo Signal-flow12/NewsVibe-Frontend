@@ -58,7 +58,7 @@ const PostForm = ({ getPost }) => {
     </Button>
     </div>
     <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Create Post</DialogTitle>
+        <DialogTitle>Create your Vibe</DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
             <DialogContentText>
@@ -93,6 +93,9 @@ const PostForm = ({ getPost }) => {
               label="Body"
               type="text"
               fullWidth
+              multiline
+              rows={2}
+              maxRows={Infinity}
               value={newPost.text}
               onChange={handleChange}
             />
