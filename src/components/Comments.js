@@ -95,7 +95,7 @@ const Comments = ({ postId }) => {
           InputProps={{
             style: textFieldStyles,}}
           />
-       <Button variant="contained" color="success" endIcon={<SendIcon />}>
+       <Button variant="contained" color="primary" endIcon={<SendIcon />}>
         Send
       </Button>
       </form>

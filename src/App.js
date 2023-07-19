@@ -6,9 +6,22 @@ import PostShow from './pages/PostShow';
 import Header from './components/Header';
 import PostEdit from './pages/PostEdit';
 import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ff5537'
+    },
+    secondary: {
+      main: '#dbf8ff'
+    },
+  }
+});
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <CssBaseline />
       <Header />
@@ -22,6 +35,7 @@ function App() {
         </Routes>
       </header>
     </div>
+    </ThemeProvider>
   );
 }
 
