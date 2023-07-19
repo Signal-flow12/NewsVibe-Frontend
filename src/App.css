@@ -1,7 +1,12 @@
 .home {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
 }
+
+
 
 
 .postText {
@@ -56,3 +61,4 @@
   padding-top: 2vh;
   align-items: center;
 }
+

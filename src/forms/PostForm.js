@@ -53,11 +53,10 @@ const PostForm = ({ getPost }) => {
     <>
     <div className="home">
       <h1>Home 📰</h1>
+    <Button className="post-button" variant="contained" onClick={handleOpen} color='secondary'>
+        Create Vibe
+    </Button>
     </div>
-        <Button variant="contained" onClick={handleOpen} color='secondary'>
-          Create Post
-        </Button>
-
     <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Create Post</DialogTitle>
         <form onSubmit={handleSubmit}>
