@@ -20,6 +20,7 @@ const PostEdit = () => {
             }
         }
         getPost();
+    // eslint-disable-next-line react-hooks/exhaustive-deps    
     }, [id]);
 
     function handleChange(e) {
