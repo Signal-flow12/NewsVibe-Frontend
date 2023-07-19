@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Comments from "../components/Comments";
+import { Button } from "@mui/material";
 
 
 
@@ -29,17 +30,21 @@ const PostShow = () => {
 
     const postLoaded = () => {
         return(
-            <div className="postDetail">
-                <h1>{post.text}</h1>
+            <div className="post-detialContainer">
+            <div className="post-detail">
+                <h2 id="title">{post.title}</h2>
+                <h4>{post.text}</h4>
                 <img src={post.image} alt="image"/>
-                <Link to={`/${id}/edit`}>
-                    <button>Edit</button>
-                </Link>
-                <Link to={`/${id}/delete`}>
-                    <button>Delete</button>
-                </Link>
-                <hr/>
+                <div className="edit-delete-post">
+                    <Link to={`/${id}/edit`}>
+                        <Button size='medium' variant="contained" color='secondary'>Edit</Button>
+                    </Link>
+                    <Link to={`/${id}/delete`}>
+                        <Button size='medium' variant="contained" color='error'>Delete</Button>
+                    </Link>
+                </div>
                 <Comments postId={id} />
+            </div>
             </div>
         )
     }

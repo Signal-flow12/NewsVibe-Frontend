@@ -6,9 +6,6 @@
   padding-bottom: 30px;
 }
 
-
-
-
 .postText {
   color: black;
 }
@@ -45,6 +42,20 @@
   height: auto;
 }
 
+.post-detialContainer {
+  padding-top: 25px;
+}
+
+.post-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color:#1976d2;
+  padding: 20px;
+  border-radius: 25px;
+}
+
 
 .vibe-button {
   display: flex;
@@ -62,3 +73,21 @@
   align-items: center;
 }
 
+.edit-delete-post {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+.comment{
+  background-color: white;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 25px;
+}
+  
+.commentText {
+  padding-left: 15px;
+}

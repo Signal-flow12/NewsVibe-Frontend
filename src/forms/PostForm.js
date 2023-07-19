@@ -53,7 +53,7 @@ const PostForm = ({ getPost }) => {
     <>
     <div className="home">
       <h1>Home 📰</h1>
-    <Button className="post-button" variant="contained" onClick={handleOpen} color='secondary'>
+    <Button className="post-button" size='large' variant="contained" onClick={handleOpen} color='secondary'>
         Create Vibe
     </Button>
     </div>

@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send'
 
 const Comments = ({ postId }) => {
   const URL = `http://localhost:4000/${postId}/comments`;
@@ -51,26 +54,51 @@ const Comments = ({ postId }) => {
   const loaded = () => {
     return comments.map((comment, idx) => {
       return (
-        <div key={idx}>
-          <h2>{comment.user}</h2>
-          <br />
-          <h3>{comment.text}</h3>
-          <hr />
+        <div className="comments" key={idx}>
+          <div className="comment">
+            <div className="commentText">
+              <h3>User: {comment.user}</h3>
+              <h4>{comment.text}</h4>
+            </div>
+          </div>
+          
         </div>
       );
     });
   };
 
+  const textFieldStyles = {
+    background: 'white',
+  };
+  
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>Text: </label>
-        <input type="text" name="text" onChange={handleChange} value={newComment.text} />
-        <label>User: </label>
-        <input type="text" name="user" onChange={handleChange} value={newComment.user} />
-        <button>Submit</button>
+      <TextField
+          type="text" 
+          placeholder='Username'
+          name="user" 
+          onChange={handleChange}
+          value={newComment.user}
+          InputProps={{
+            style: textFieldStyles,}}
+             />
+
+        <TextField   
+          placeholder='Enter a comment'
+          type="text"
+          name="text"
+          onChange={handleChange}
+          value={newComment.text}
+          fullWidth
+          InputProps={{
+            style: textFieldStyles,}}
+          />
+       <Button variant="contained" color="success" endIcon={<SendIcon />}>
+        Send
+      </Button>
       </form>
-      <h2>Here are all my comments</h2>
       {comments ? loaded() : <h3>Loading...</h3>}
     </>
   );
