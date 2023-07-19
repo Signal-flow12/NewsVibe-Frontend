@@ -51,11 +51,14 @@ const PostForm = ({ getPost }) => {
 
   return (
     <>
-      <h1 className="home">Home 📰</h1>
-      <Button variant="contained" onClick={handleOpen}>
-        Create Post
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
+    <div className="home">
+      <h1>Home 📰</h1>
+    </div>
+        <Button variant="contained" onClick={handleOpen} color='secondary'>
+          Create Post
+        </Button>
+
+    <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Create Post</DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
@@ -65,22 +68,33 @@ const PostForm = ({ getPost }) => {
             <TextField
               autoFocus
               margin="dense"
+              id="title"
+              name="title"
+              label="Headline"
+              type="text"
+              fullWidth
+              value={newPost.title}
+              onChange={handleChange}
+            />
+              <TextField
+                margin="dense"
+                id="image"
+                name="image"
+                label="Image"
+                type="text"
+                fullWidth
+                value={newPost.image}
+                onChange={handleChange}
+              />
+            <TextField
+              autoFocus
+              margin="dense"
               id="text"
               name="text"
-              label="Text"
+              label="Body"
               type="text"
               fullWidth
               value={newPost.text}
-              onChange={handleChange}
-            />
-            <TextField
-              margin="dense"
-              id="image"
-              name="image"
-              label="Image"
-              type="text"
-              fullWidth
-              value={newPost.image}
               onChange={handleChange}
             />
           </DialogContent>

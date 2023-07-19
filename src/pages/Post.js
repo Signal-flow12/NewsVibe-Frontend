@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import * as React from 'react';
 import { Button } from "@mui/material";
 import PostForm from "../forms/PostForm";
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const Post = () => {
    
@@ -67,10 +69,12 @@ const handleChange = (e) => {
             <div key={singlePost._id} className="post-container">
                 <div className="post">
                 <Link to={`/${singlePost._id}`} style={{ textDecoration: 'none' }}>
-                    <h4>{singlePost.text}</h4>
+                    <h2 className="postText" id="title">{singlePost.title}</h2>
+                    <h4 className="postText">{singlePost.text}</h4>
                     <img src={singlePost.image} alt="image" />
                 </Link>
-                <hr />
+                <div className="comments-likes"><ChatBubbleOutlineIcon /> <FavoriteBorderIcon /></div>
+
                 </div>
             </div>
             ))}
