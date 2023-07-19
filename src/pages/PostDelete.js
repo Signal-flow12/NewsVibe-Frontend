@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function PostDelete() {
     const {id} = useParams();
-    const URL = `http://localhost:4000/${id}`
+    const URL = `https://newsvibe.onrender.com/${id}`
 
     async function deletePost() {
         try {

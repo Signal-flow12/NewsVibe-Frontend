@@ -14,7 +14,7 @@ const PostForm = ({ getPost }) => {
     image: "",
   });
 
-  const URL = 'http://localhost:4000/';
+  const URL = 'https://newsvibe.onrender.com/';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

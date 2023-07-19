@@ -9,7 +9,7 @@ const PostShow = () => {
 
     const [post, setPost] = useState(null);
     const { id } = useParams();
-    const URL = `http://localhost:4000/${id}`
+    const URL = `https://newsvibe.onrender.com/${id}`
 
     const getPostDetail = async () => {
         try{
@@ -37,10 +37,10 @@ const PostShow = () => {
                 <img src={post.image} alt="image"/>
                 <div className="edit-delete-post">
                     <Link to={`/${id}/edit`}>
-                        <Button size='medium' variant="contained" color='secondary'>Edit</Button>
+                        <Button size='medium' variant="contained" color='secondary' style={{ marginBottom: '5px' }}>Edit</Button>
                     </Link>
                     <Link to={`/${id}/delete`}>
-                        <Button size='medium' variant="contained" color='error'>Delete</Button>
+                        <Button size='medium' variant="contained" color='error' style={{ marginBottom: '5px' }}>Delete</Button>
                     </Link>
                 </div>
                 <Comments postId={id} />

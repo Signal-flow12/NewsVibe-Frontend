@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send'
 
 const Comments = ({ postId }) => {
-  const URL = `http://localhost:4000/${postId}/comments`;
+  const URL = `https://newsvibe.onrender.com//comments`;
 
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState({
@@ -92,13 +92,17 @@ const Comments = ({ postId }) => {
           onChange={handleChange}
           value={newComment.text}
           fullWidth
+          multiline
+              rows={2}
+              maxRows={Infinity}
           InputProps={{
             style: textFieldStyles,}}
           />
-       <Button variant="contained" color="primary" endIcon={<SendIcon />}>
+       <Button variant="contained"  type="submit" color="primary" style={{ marginTop: '5px' }} endIcon={<SendIcon />}>
         Send
       </Button>
       </form>
+      
       {comments ? loaded() : <h3>Loading...</h3>}
     </>
   );

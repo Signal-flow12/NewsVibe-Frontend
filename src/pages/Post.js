@@ -14,7 +14,7 @@ const [newPost, setnewPost]= useState({
     image: "",
 })
 
-const URL = 'http://localhost:4000/';
+const URL = 'https://newsvibe.onrender.com/';
 
 const getPost = async () => {
     try{

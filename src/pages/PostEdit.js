@@ -6,7 +6,7 @@ const PostEdit = () => {
     const { id } = useParams();
     const [post, setPost] = useState(null);
     const navigate = useNavigate();
-    const URL = `http://localhost:4000/${id}`
+    const URL = `https://newsvibe.onrender.com/${id}`
   
 
     useEffect(() => {
