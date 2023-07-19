@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send'
 
 const Comments = ({ postId }) => {
-  const URL = `https://newsvibe.onrender.com//comments`;
+  const URL = `https://newsvibe.onrender.com/${postId}/comments`;
 
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState({
@@ -49,7 +49,7 @@ const Comments = ({ postId }) => {
     } catch (err) {
       console.log(err);
     }
-  }; // Added closing curly bracket
+  }; 
 
   const loaded = () => {
     return comments.map((comment, idx) => {

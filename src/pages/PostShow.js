@@ -34,7 +34,7 @@ const PostShow = () => {
             <div className="post-detail">
                 <h2 id="title">{post.title}</h2>
                 <h4>{post.text}</h4>
-                <img src={post.image} alt="image"/>
+                <img src={post.image} alt="News Post"/>
                 <div className="edit-delete-post">
                     <Link to={`/${id}/edit`}>
                         <Button size='medium' variant="contained" color='secondary' style={{ marginBottom: '5px' }}>Edit</Button>
