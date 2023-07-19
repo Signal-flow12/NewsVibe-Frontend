@@ -1,7 +1,7 @@
 # NewsVibe
 NewsVibe is a social site for verified journalist and news organizations to post their news articles and hot topics. Individuals who do not fall under this category will be able to create an account but will not be able to post. The reason for this is to drive discussions in the comments sections of the post. Here is where indivduals can comment their opions and engage in discord with other individuals.  
 
-### How to
+### How to:
 * Fork
 * Clone
 * NPM install
