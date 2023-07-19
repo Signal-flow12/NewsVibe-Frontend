@@ -29,6 +29,7 @@ NewsVibe is a social site for verified journalist and news organizations to post
 ### Links
 * Frontend - https://main--newsvibe.netlify.app/
 * Backend - https://newsvibe.onrender.com/
+* Kanaban with wireframes/ERD - https://trello.com/b/lMYJPmvh/newsvibe-kanban
 
 
 
